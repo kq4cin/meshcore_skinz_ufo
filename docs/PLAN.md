@@ -16,8 +16,9 @@ This plan uses the **Elephant & Goldfish** model:
 ### Mission
 A clone of the MeshCore web client (companion-radio client) that:
 1. Is an installable, offline-capable **PWA**.
-2. Wears a **patriotic theme** (navy / red / cream / gold, eagle crest, stars & stripes)
-   derived from the supplied asset pack.
+2. Wears the **Galaxy Core alien theme** (deep-space navy / parchment tiles / alien green / flare gold /
+   nebula purple, tentacled-UFO mascot crest, cosmic stripes, abduction-beam pattern)
+   derived from the supplied alien asset pack.
 3. Adds a **Weather tab**: the user enters a **ZIP code** and a **weather hashtag
    channel** (e.g. `#weather`). The app sends the ZIP to the bot on that channel and
    shows the bot's replies in the Weather tab.
@@ -65,12 +66,12 @@ Stack: Vite + React 19 + TypeScript, Vitest (unit), Playwright (e2e), GitHub Pag
 ### Information architecture (4 tabs)
 | Tab | Asset-pack icon | Contents |
 | --- | --- | --- |
-| Messages | "Messages" (chat bubbles) | Channels + Direct, thread view |
-| Weather | (new — cloud + star in the same style) | Hero report card, "Request" button, history |
-| Network | "Network" (star nodes) | Heard nodes, send advert |
-| Settings | "Settings" (gear + wing) | Profile, Weather, Device, Radio (read-only) |
+| Messages | "Space Messages" (chat bubbles with alien eyes) | Channels + Direct, thread view |
+| Weather | (new — ringed planet + cloud in the same style) | Hero report card, "Request" button, history |
+| Network | "Network — Synaptic Mesh" (star / planet nodes) | Heard nodes, send advert |
+| Settings | "Shuttle Settings" (gear + saucer) | Profile, Weather, Device, Radio (read-only) |
 
-Header: eagle crest + node name + one status dot (Online / Offline / Error from the pack).
+Header: UFO mascot crest + "Galaxy Core" brand + node name + one status dot (In-System / System Down / Warning from the pack).
 
 ### Responsive rules
 - `< 900 px`: bottom tab bar, one pane, thread opens full-screen with back button.
@@ -78,8 +79,10 @@ Header: eagle crest + node name + one status dot (Online / Offline / Error from 
 - Fluid type with `clamp()`, `100dvh`, `env(safe-area-inset-*)`, `prefers-reduced-motion`.
 
 ### Theme tokens
-`--navy #0b1d4a` · `--navy-deep #06112e` · `--red #c8102e` · `--cream #f4ecd8`
-· `--gold #e7b84b` · `--ink #0a0f1f` · status `--ok #2ecc40` `--bad #ff3b3b` `--warn #f5c518`.
+`--void #121a3a` · `--void-deep #070b1f` · `--hull #efe2c0` (parchment) · `--slime #7cc242` · `--flare #f5b53d`
+· `--nebula #7a4bc0` · `--teal #2f9c96` · `--ember #d8432c` · `--ink #1b130c` · status `--ok #3ddc4a` `--bad #ff3b30` `--warn #f5c518`.
+Parchment panels (`.card`, `.sheet`, lists, …) locally override `--text`/`--muted`/`--line`/`--accent` so text flips to ink-on-paper.
+Title font: **Bungee** (chunky retro display face, `@fontsource/bungee`) for brand and headings.
 Display font: **Oswald 600/700**, self-hosted via `@fontsource/oswald` (bundled + cached by the service worker — no CDN, works offline, consistent on iOS/Android).
 
 ---

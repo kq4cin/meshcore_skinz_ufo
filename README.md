@@ -1,6 +1,6 @@
-# 🦅 MeshCore Client
+# 🛸 Galaxy Core Client
 
-## ▶️ [Launch the app: kq4cin.github.io/MESHCORE_SKINZ](https://kq4cin.github.io/MESHCORE_SKINZ/)
+## ▶️ [Launch the app: kq4cin.github.io/meshcore_skinz_ufo](https://kq4cin.github.io/meshcore_skinz_ufo/)
 
 Click the link above. The app runs in your web browser. There is nothing to download and no account to create.
 
@@ -8,7 +8,7 @@ Click the link above. The app runs in your web browser. There is nothing to down
 
 ## What is it?
 
-A stars-and-stripes **MeshCore companion-radio client** with a built-in **Weather** tab. Pair your radio and chat off-grid over LoRa, then ask your mesh weather bot for a forecast with one tap.
+An alien/UFO-themed **MeshCore companion-radio client** (the Galaxy Core skin of [MESHCORE_SKINZ](https://github.com/kq4cin/MESHCORE_SKINZ)) with a built-in **Weather** tab. Pair your radio and chat off-grid over LoRa, then ask your mesh weather bot for a forecast with one tap.
 
 - 📡 **Connect your radio** — over Bluetooth or USB
 - 💬 **Messages** — channels and direct messages, unread badges, and delivery status
@@ -30,7 +30,7 @@ A stars-and-stripes **MeshCore companion-radio client** with a built-in **Weathe
 
 ## First time using it?
 
-1. Open the [app link](https://kq4cin.github.io/MESHCORE_SKINZ/).
+1. Open the [app link](https://kq4cin.github.io/meshcore_skinz_ufo/).
 2. Enter your **ZIP code or location** — whatever your weather bot responds to (for example `30301` or `Atlanta, GA`).
 3. Enter your weather bot's **hashtag channel** (default `#weather`). The app adds it to your radio for you.
 4. Tap **Connect** and pick your radio. Its node name comes from the radio, so there's nothing to set up.
@@ -94,7 +94,7 @@ npm run icons          # regenerate PNG icons from public/icons/*.svg
 Planning notes, including the Elephant & Goldfish plan, are in [docs/PLAN.md](docs/PLAN.md).
 
 Built on [`@liamcottle/meshcore.js`](https://github.com/meshcore-dev/meshcore.js) (MIT).
-The theme artwork in this repo is an SVG recreation inspired by the supplied asset pack.
+The Galaxy Core theme artwork (tentacled-UFO mascot, alien icons, cosmic stripes, abduction pattern) is an SVG recreation inspired by the supplied alien asset pack.
 
 ---
 

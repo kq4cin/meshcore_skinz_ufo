@@ -21,7 +21,7 @@ export function Header({ mesh, onStatusClick }: { mesh: Mesh; onStatusClick: () 
     <header className="topbar">
       <Crest className="topbar-crest" />
       <div className="topbar-title">
-        <span className="brand">MeshCore</span>
+        <span className="brand">Galaxy Core</span>
         <span className="topbar-node">{mesh.self?.name ?? 'Client'}</span>
       </div>
       {mesh.batteryMv != null && mesh.status === 'online' && (
