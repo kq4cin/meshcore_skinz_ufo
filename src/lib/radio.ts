@@ -3,6 +3,7 @@ import WebSerialConnection from '@liamcottle/meshcore.js/src/connection/web_seri
 import Constants from '@liamcottle/meshcore.js/src/constants.js';
 import { hashtagSecret, normalizeHashtag } from './hashtag';
 import { fromHex, toHex } from './hex';
+import { hopsFromPathLen } from './path';
 import { CommandQueue, withTimeout } from './queue';
 import type { Channel, Contact, ContactKind, DeviceInfo, Radio, RadioEvent, SelfInfo } from './types';
 
@@ -14,7 +15,7 @@ function toContact(c: any): Contact {
     name: c.advName || toHex(c.publicKey).slice(0, 8),
     kind: KINDS[c.type] ?? 'unknown',
     lastAdvert: c.lastAdvert,
-    hops: c.outPathLen >= 0 ? c.outPathLen : null,
+    hops: hopsFromPathLen(c.outPathLen),
     lat: c.advLat ? c.advLat / 1e6 : undefined,
     lon: c.advLon ? c.advLon / 1e6 : undefined,
   };
@@ -189,13 +190,12 @@ class MeshRadio implements Radio {
   }
 
   private handleSynced(next: any): void {
-    const hopsOf = (pathLen: number) => (pathLen === 0xff ? 0 : pathLen);
     if (next.channelMessage) {
       const m = next.channelMessage;
-      this.emit({ type: 'message', message: { kind: 'channel', channelIdx: m.channelIdx, text: m.text, ts: m.senderTimestamp, hops: hopsOf(m.pathLen), snr: m.snr } });
+      this.emit({ type: 'message', message: { kind: 'channel', channelIdx: m.channelIdx, text: m.text, ts: m.senderTimestamp, hops: hopsFromPathLen(m.pathLen), snr: m.snr } });
     } else if (next.contactMessage) {
       const m = next.contactMessage;
-      this.emit({ type: 'message', message: { kind: 'direct', pubKeyPrefix: toHex(m.pubKeyPrefix), text: m.text, ts: m.senderTimestamp, hops: hopsOf(m.pathLen), snr: m.snr } });
+      this.emit({ type: 'message', message: { kind: 'direct', pubKeyPrefix: toHex(m.pubKeyPrefix), text: m.text, ts: m.senderTimestamp, hops: hopsFromPathLen(m.pathLen), snr: m.snr } });
     }
   }
 
